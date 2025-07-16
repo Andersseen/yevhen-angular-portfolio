@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yevhen Letin - .NET Backend Developer</title>
+    <meta
+      name="description"
+      content="Experienced .NET Backend Developer with 3+ years of professional experience. Specialized in ASP.NET Core, Entity Framework, and Azure cloud solutions."
+    />
+    <meta
+      name="keywords"
+      content=".NET, ASP.NET Core, Backend Developer, C#, Entity Framework, Azure, SQL Server, API Development"
+    />
+    <meta name="author" content="Yevhen Letin" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Yevhen Letin - .NET Backend Developer" />
+    <meta
+      property="og:description"
+      content="Experienced .NET Backend Developer with 3+ years of professional experience. Specialized in ASP.NET Core, Entity Framework, and Azure cloud solutions."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexpetrov.dev" />
+    <meta property="og:site_name" content="Yevhen Letin Portfolio" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yevhen Letin - .NET Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Experienced .NET Backend Developer with 3+ years of professional experience. Specialized in ASP.NET Core, Entity Framework, and Azure cloud solutions."
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0066cc" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alexpetrov.dev" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yevhen Letin",
+        "jobTitle": ".NET Backend Developer",
+        "email": "alex.petrov@email.com",
+        "telephone": "+1 (555) 123-4567",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toronto",
+          "addressCountry": "Canada"
+        },
+        "sameAs": ["https://linkedin.com/in/alexpetrov", "https://github.com/alexpetrov"],
+        "knowsAbout": [
+          ".NET",
+          "ASP.NET Core",
+          "C#",
+          "Entity Framework",
+          "Azure",
+          "SQL Server",
+          "API Development",
+          "Microservices"
+        ]
+      }
+    </script>
+
+    <base href="/" />
+
+    <!-- Critical CSS will be inlined here by build process -->
+    <style>
+      /* Loading spinner styles */
+      .loading-spinner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f8fafc;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #e2e8f0;
+        border-top: 4px solid #0066cc;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Hide loading spinner when app is ready */
+      .app-ready .loading-spinner {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+
+    <app-root>
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+      </div>
+    </app-root>
+
+    <!-- Console message for developers -->
+    <script>
+      // Add class when app is ready
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(() => {
+          document.body.classList.add('app-ready');
+        }, 100);
+      });
+    </script>
+  </body>
+</html>

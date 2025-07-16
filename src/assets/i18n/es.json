@@ -1,0 +1,94 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "changeLanguage": "Cambiar idioma"
+  },
+  "theme": {
+    "switchToLight": "Cambiar a modo claro",
+    "switchToDark": "Cambiar a modo oscuro"
+  },
+  "hero": {
+    "yearsExperience": "Años de Experiencia",
+    "getInTouch": "Contactar",
+    "viewExperience": "Ver Experiencia",
+    "downloadResume": "Descargar CV",
+    "githubProfile": "Perfil de GitHub",
+    "linkedInProfile": "Perfil de LinkedIn",
+    "emailContact": "Contacto por Email",
+    "scrollDown": "Desplazarse hacia abajo"
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "subtitle": "Conoce más sobre mí",
+    "paragraph1": "Soy un Desarrollador Backend .NET apasionado con más de 3 años de experiencia profesional construyendo aplicaciones empresariales escalables y de alto rendimiento. Mi experiencia radica en crear sistemas backend robustos utilizando tecnologías .NET modernas y plataformas en la nube.",
+    "paragraph2": "A lo largo de mi carrera, he trabajado con equipos diversos para entregar aplicaciones de misión crítica que sirven a miles de usuarios diariamente. Me especializo en desarrollo de APIs, arquitectura de microservicios y optimización de bases de datos, siempre enfocándome en principios de código limpio y rendimiento.",
+    "paragraph3": "Cuando no estoy programando, disfruto mantenerme actualizado con los últimos desarrollos del ecosistema .NET, contribuyendo a proyectos de código abierto y compartiendo conocimiento con la comunidad de desarrolladores. Creo en el aprendizaje continuo y siempre me esfuerzo por mejorar mis habilidades.",
+    "yearsExperience": "Años de Experiencia",
+    "projectsCompleted": "Proyectos Completados",
+    "usersServed": "Usuarios Atendidos",
+    "systemUptime": "Tiempo de Actividad del Sistema",
+    "whatIDo": "Lo Que Hago",
+    "apiDevelopment": "Desarrollo de APIs",
+    "apiDevelopmentDesc": "Construyendo APIs RESTful robustas y escalables usando ASP.NET Core con autenticación, validación y documentación adecuadas.",
+    "databaseDesign": "Diseño de Bases de Datos",
+    "databaseDesignDesc": "Diseñando esquemas de bases de datos eficientes e implementando consultas optimizadas usando Entity Framework Core y SQL Server.",
+    "cloudSolutions": "Soluciones en la Nube",
+    "cloudSolutionsDesc": "Desplegando y gestionando aplicaciones en Azure con contenedores, microservicios y arquitecturas serverless."
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "subtitle": "Mi trayectoria en el desarrollo de software",
+    "keyAchievements": "Logros Clave",
+    "technologies": "Tecnologías Utilizadas",
+    "interested": "¿Interesado en trabajar juntos?",
+    "getInTouch": "Contactar"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Tecnologías y herramientas con las que trabajo",
+    "backend": "Tecnologías Backend",
+    "database": "Tecnologías de Base de Datos",
+    "cloud": "Nube y DevOps",
+    "tools": "Herramientas y Otros"
+  },
+  "contact": {
+    "title": "Contactar",
+    "subtitle": "Discutamos tu próximo proyecto",
+    "getInTouch": "Contactar",
+    "email": "Email",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "followMe": "Sígueme",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "nameRequired": "El nombre es requerido",
+      "email": "Email",
+      "emailPlaceholder": "tu.email@ejemplo.com",
+      "emailInvalid": "Por favor ingresa un email válido",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Consulta de proyecto, colaboración, etc.",
+      "subjectRequired": "El asunto es requerido",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto o consulta...",
+      "messageRequired": "El mensaje es requerido",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando..."
+    }
+  },
+  "footer": {
+    "tagline": "Construyendo soluciones backend escalables con .NET",
+    "linkedin": "Perfil de LinkedIn",
+    "github": "Perfil de GitHub",
+    "email": "Contacto por Email",
+    "quickLinks": "Enlaces Rápidos",
+    "contact": "Información de Contacto",
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con"
+  }
+}

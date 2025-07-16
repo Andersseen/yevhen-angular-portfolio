@@ -1,0 +1,94 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "contact": "Contact",
+    "menu": "Menu",
+    "changeLanguage": "Change Language"
+  },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "hero": {
+    "yearsExperience": "Years Experience",
+    "getInTouch": "Get In Touch",
+    "viewExperience": "View Experience",
+    "downloadResume": "Download Resume",
+    "githubProfile": "GitHub Profile",
+    "linkedInProfile": "LinkedIn Profile",
+    "emailContact": "Email Contact",
+    "scrollDown": "Scroll Down"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know me better",
+    "paragraph1": "I'm a passionate .NET Backend Developer with over 3 years of professional experience building scalable, high-performance enterprise applications. My expertise lies in crafting robust backend systems using modern .NET technologies and cloud platforms.",
+    "paragraph2": "Throughout my career, I've worked with diverse teams to deliver mission-critical applications that serve thousands of users daily. I specialize in API development, microservices architecture, and database optimization, always focusing on clean code principles and performance.",
+    "paragraph3": "When I'm not coding, I enjoy staying up-to-date with the latest .NET ecosystem developments, contributing to open-source projects, and sharing knowledge with the developer community. I believe in continuous learning and always strive to improve my skills.",
+    "yearsExperience": "Years Experience",
+    "projectsCompleted": "Projects Completed",
+    "usersServed": "Users Served",
+    "systemUptime": "System Uptime",
+    "whatIDo": "What I Do",
+    "apiDevelopment": "API Development",
+    "apiDevelopmentDesc": "Building robust, scalable RESTful APIs using ASP.NET Core with proper authentication, validation, and documentation.",
+    "databaseDesign": "Database Design",
+    "databaseDesignDesc": "Designing efficient database schemas and implementing optimized queries using Entity Framework Core and SQL Server.",
+    "cloudSolutions": "Cloud Solutions",
+    "cloudSolutionsDesc": "Deploying and managing applications on Azure with containers, microservices, and serverless architectures."
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "My journey in software development",
+    "keyAchievements": "Key Achievements",
+    "technologies": "Technologies Used",
+    "interested": "Interested in working together?",
+    "getInTouch": "Get In Touch"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Technologies and tools I work with",
+    "backend": "Backend Technologies",
+    "database": "Database Technologies",
+    "cloud": "Cloud & DevOps",
+    "tools": "Tools & Other"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's discuss your next project",
+    "getInTouch": "Get In Touch",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "followMe": "Follow Me",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "nameRequired": "Name is required",
+      "email": "Email",
+      "emailPlaceholder": "your.email@example.com",
+      "emailInvalid": "Please enter a valid email address",
+      "subject": "Subject",
+      "subjectPlaceholder": "Project inquiry, collaboration, etc.",
+      "subjectRequired": "Subject is required",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project or inquiry...",
+      "messageRequired": "Message is required",
+      "send": "Send Message",
+      "sending": "Sending..."
+    }
+  },
+  "footer": {
+    "tagline": "Building scalable backend solutions with .NET",
+    "linkedin": "LinkedIn Profile",
+    "github": "GitHub Profile",
+    "email": "Email Contact",
+    "quickLinks": "Quick Links",
+    "contact": "Contact Info",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  }
+}
