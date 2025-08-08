@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
@@ -8,8 +8,8 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
 
 @Component({
   selector: 'app-hero',
-  standalone: true,
   imports: [CommonModule, TranslateModule, RouterModule, AnimateOnScrollDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-accent-50 dark:from-secondary-900 dark:to-secondary-800">
       <div class="container-max section-padding">

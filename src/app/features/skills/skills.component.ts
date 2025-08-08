@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
@@ -7,8 +7,8 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
 
 @Component({
   selector: 'app-skills',
-  standalone: true,
   imports: [CommonModule, TranslateModule, SkillCardComponent, AnimateOnScrollDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="skills" class="py-20 bg-secondary-50 dark:bg-secondary-800">
       <div class="container-max section-padding">
@@ -33,10 +33,9 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
               {{ 'skills.backend' | translate }}
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <app-skill-card
-                *ngFor="let skill of getSkillsByCategory('backend')"
-                [skill]="skill"
-              ></app-skill-card>
+              @for (skill of getSkillsByCategory('backend'); track skill.name) {
+                <app-skill-card [skill]="skill"></app-skill-card>
+              }
             </div>
           </div>
           
@@ -51,10 +50,9 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
               {{ 'skills.database' | translate }}
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <app-skill-card
-                *ngFor="let skill of getSkillsByCategory('database')"
-                [skill]="skill"
-              ></app-skill-card>
+              @for (skill of getSkillsByCategory('database'); track skill.name) {
+                <app-skill-card [skill]="skill"></app-skill-card>
+              }
             </div>
           </div>
           
@@ -69,10 +67,9 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
               {{ 'skills.cloud' | translate }}
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <app-skill-card
-                *ngFor="let skill of getSkillsByCategory('cloud')"
-                [skill]="skill"
-              ></app-skill-card>
+              @for (skill of getSkillsByCategory('cloud'); track skill.name) {
+                <app-skill-card [skill]="skill"></app-skill-card>
+              }
             </div>
           </div>
           
@@ -88,14 +85,12 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
               {{ 'skills.tools' | translate }}
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <app-skill-card
-                *ngFor="let skill of getSkillsByCategory('tools')"
-                [skill]="skill"
-              ></app-skill-card>
-              <app-skill-card
-                *ngFor="let skill of getSkillsByCategory('other')"
-                [skill]="skill"
-              ></app-skill-card>
+              @for (skill of getSkillsByCategory('tools'); track skill.name) {
+                <app-skill-card [skill]="skill"></app-skill-card>
+              }
+              @for (skill of getSkillsByCategory('other'); track skill.name) {
+                <app-skill-card [skill]="skill"></app-skill-card>
+              }
             </div>
           </div>
         </div>
