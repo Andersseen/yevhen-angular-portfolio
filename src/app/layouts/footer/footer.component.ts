@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [CommonModule, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <footer class="bg-secondary-900 text-white py-12">
       <div class="container-max section-padding">

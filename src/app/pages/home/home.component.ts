@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '../../features/hero/hero.component';
 import { AboutComponent } from '../../features/about/about.component';
@@ -8,7 +8,6 @@ import { ContactComponent } from '../../features/contact/contact.component';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [
     CommonModule,
     HeroComponent,
@@ -17,6 +16,7 @@ import { ContactComponent } from '../../features/contact/contact.component';
     SkillsComponent,
     ContactComponent
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <main>
       <app-hero></app-hero>

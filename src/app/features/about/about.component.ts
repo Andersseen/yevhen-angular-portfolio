@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
@@ -6,8 +6,8 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
 
 @Component({
   selector: 'app-about',
-  standalone: true,
   imports: [CommonModule, TranslateModule, AnimateOnScrollDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="about" class="py-20 bg-white dark:bg-secondary-900">
       <div class="container-max section-padding">
@@ -38,12 +38,13 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
                 </p>
                 
                 <div class="flex flex-wrap gap-3">
-                  <span
-                    *ngFor="let highlight of highlights"
-                    class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200"
-                  >
-                    {{ highlight }}
-                  </span>
+                  @for (highlight of highlights; track highlight) {
+                    <span
+                      class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200"
+                    >
+                      {{ highlight }}
+                    </span>
+                  }
                 </div>
               </div>
             </div>

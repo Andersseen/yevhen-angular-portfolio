@@ -2,8 +2,7 @@ import { Directive, ElementRef, OnInit, OnDestroy, inject } from '@angular/core'
 import { AnimationService } from '../services/animation.service';
 
 @Directive({
-  selector: '[appAnimateOnScroll]',
-  standalone: true
+  selector: '[appAnimateOnScroll]'
 })
 export class AnimateOnScrollDirective implements OnInit, OnDestroy {
   private readonly elementRef = inject(ElementRef<HTMLElement>);

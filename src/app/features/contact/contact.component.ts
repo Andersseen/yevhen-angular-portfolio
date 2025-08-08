@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -7,8 +7,8 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, TranslateModule, AnimateOnScrollDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="contact" class="py-20 bg-secondary-50 dark:bg-secondary-800">
       <div class="container-max section-padding">
@@ -117,9 +117,11 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
                     [class.border-error-500]="isFieldInvalid('name')"
                     [placeholder]="'contact.form.namePlaceholder' | translate"
                   />
-                  <div *ngIf="isFieldInvalid('name')" class="mt-1 text-sm text-error-600 dark:text-error-400">
-                    {{ 'contact.form.nameRequired' | translate }}
-                  </div>
+                  @if (isFieldInvalid('name')) {
+                    <div class="mt-1 text-sm text-error-600 dark:text-error-400">
+                      {{ 'contact.form.nameRequired' | translate }}
+                    </div>
+                  }
                 </div>
                 
                 <div>
@@ -134,9 +136,11 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
                     [class.border-error-500]="isFieldInvalid('email')"
                     [placeholder]="'contact.form.emailPlaceholder' | translate"
                   />
-                  <div *ngIf="isFieldInvalid('email')" class="mt-1 text-sm text-error-600 dark:text-error-400">
-                    {{ 'contact.form.emailInvalid' | translate }}
-                  </div>
+                  @if (isFieldInvalid('email')) {
+                    <div class="mt-1 text-sm text-error-600 dark:text-error-400">
+                      {{ 'contact.form.emailInvalid' | translate }}
+                    </div>
+                  }
                 </div>
                 
                 <div>
@@ -151,9 +155,11 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
                     [class.border-error-500]="isFieldInvalid('subject')"
                     [placeholder]="'contact.form.subjectPlaceholder' | translate"
                   />
-                  <div *ngIf="isFieldInvalid('subject')" class="mt-1 text-sm text-error-600 dark:text-error-400">
-                    {{ 'contact.form.subjectRequired' | translate }}
-                  </div>
+                  @if (isFieldInvalid('subject')) {
+                    <div class="mt-1 text-sm text-error-600 dark:text-error-400">
+                      {{ 'contact.form.subjectRequired' | translate }}
+                    </div>
+                  }
                 </div>
                 
                 <div>
@@ -168,43 +174,48 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
                     [class.border-error-500]="isFieldInvalid('message')"
                     [placeholder]="'contact.form.messagePlaceholder' | translate"
                   ></textarea>
-                  <div *ngIf="isFieldInvalid('message')" class="mt-1 text-sm text-error-600 dark:text-error-400">
-                    {{ 'contact.form.messageRequired' | translate }}
-                  </div>
+                  @if (isFieldInvalid('message')) {
+                    <div class="mt-1 text-sm text-error-600 dark:text-error-400">
+                      {{ 'contact.form.messageRequired' | translate }}
+                    </div>
+                  }
                 </div>
                 
                 <button
                   type="submit"
-                  [disabled]="contactForm.invalid || isSubmitting"
+                  [disabled]="contactForm.invalid || isSubmitting()"
                   class="btn btn-primary w-full"
-                  [class.opacity-50]="contactForm.invalid || isSubmitting"
+                  [class.opacity-50]="contactForm.invalid || isSubmitting()"
                 >
-                  <svg *ngIf="isSubmitting" class="animate-spin -ml-1 mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  {{ isSubmitting ? ('contact.form.sending' | translate) : ('contact.form.send' | translate) }}
+                  @if (isSubmitting()) {
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  }
+                  {{ isSubmitting() ? ('contact.form.sending' | translate) : ('contact.form.send' | translate) }}
                 </button>
               </form>
               
-              <div
-                *ngIf="submitMessage"
-                class="mt-6 p-4 rounded-lg"
-                [class.bg-success-50]="submitSuccess"
-                [class.text-success-800]="submitSuccess"
-                [class.bg-error-50]="!submitSuccess"
-                [class.text-error-800]="!submitSuccess"
-                [class.border-success-200]="submitSuccess"
-                [class.border-error-200]="!submitSuccess"
-                [class.dark:bg-success-900]="submitSuccess"
-                [class.dark:text-success-200]="submitSuccess"
-                [class.dark:bg-error-900]="!submitSuccess"
-                [class.dark:text-error-200]="!submitSuccess"
-                [class.dark:border-success-800]="submitSuccess"
-                [class.dark:border-error-800]="!submitSuccess"
-              >
-                {{ submitMessage }}
-              </div>
+              @if (submitMessage()) {
+                <div
+                  class="mt-6 p-4 rounded-lg"
+                  [class.bg-success-50]="submitSuccess()"
+                  [class.text-success-800]="submitSuccess()"
+                  [class.bg-error-50]="!submitSuccess()"
+                  [class.text-error-800]="!submitSuccess()"
+                  [class.border-success-200]="submitSuccess()"
+                  [class.border-error-200]="!submitSuccess()"
+                  [class.dark:bg-success-900]="submitSuccess()"
+                  [class.dark:text-success-200]="submitSuccess()"
+                  [class.dark:bg-error-900]="!submitSuccess()"
+                  [class.dark:text-error-200]="!submitSuccess()"
+                  [class.dark:border-success-800]="submitSuccess()"
+                  [class.dark:border-error-800]="!submitSuccess()"
+                >
+                  {{ submitMessage() }}
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -219,9 +230,9 @@ export class ContactComponent {
   public readonly personalInfo = this.portfolioService.getPersonalInfo();
   
   public contactForm: FormGroup;
-  public isSubmitting = false;
-  public submitMessage = '';
-  public submitSuccess = false;
+  public readonly isSubmitting = signal(false);
+  public readonly submitMessage = signal('');
+  public readonly submitSuccess = signal(false);
   
   constructor() {
     this.contactForm = this.formBuilder.group({
@@ -245,23 +256,23 @@ export class ContactComponent {
       return;
     }
     
-    this.isSubmitting = true;
-    this.submitMessage = '';
+    this.isSubmitting.set(true);
+    this.submitMessage.set('');
     
     this.portfolioService.submitContactForm(this.contactForm.value).subscribe({
       next: (response) => {
-        this.submitSuccess = response.success;
-        this.submitMessage = response.message;
-        this.isSubmitting = false;
-        
+        this.submitSuccess.set(response.success);
+        this.submitMessage.set(response.message);
+        this.isSubmitting.set(false);
+
         if (response.success) {
           this.contactForm.reset();
         }
       },
       error: () => {
-        this.submitSuccess = false;
-        this.submitMessage = 'An error occurred. Please try again later.';
-        this.isSubmitting = false;
+        this.submitSuccess.set(false);
+        this.submitMessage.set('An error occurred. Please try again later.');
+        this.isSubmitting.set(false);
       }
     });
   }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
@@ -7,8 +7,8 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
 
 @Component({
   selector: 'app-experience',
-  standalone: true,
   imports: [CommonModule, TranslateModule, ExperienceCardComponent, AnimateOnScrollDirective],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section id="experience" class="py-20 bg-white dark:bg-secondary-900">
       <div class="container-max section-padding">
@@ -26,20 +26,21 @@ import { AnimateOnScrollDirective } from '../../core/directives/animate-on-scrol
           <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-secondary-200 dark:bg-secondary-700"></div>
           
           <div class="space-y-12">
-            <div
-              *ngFor="let experience of experiences; let i = index"
-              class="relative flex items-center"
-              [class.md:flex-row-reverse]="i % 2 === 0"
-              appAnimateOnScroll
-            >
-              <!-- Timeline dot -->
-              <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-3 h-3 bg-primary-500 rounded-full border-4 border-white dark:border-secondary-900 z-10"></div>
-              
-              <!-- Content -->
-              <div class="ml-12 md:ml-0 md:w-5/12" [class.md:text-right]="i % 2 === 0">
-                <app-experience-card [experience]="experience"></app-experience-card>
+            @for (experience of experiences; track experience.company; let i = $index) {
+              <div
+                class="relative flex items-center"
+                [class.md:flex-row-reverse]="i % 2 === 0"
+                appAnimateOnScroll
+              >
+                <!-- Timeline dot -->
+                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-3 h-3 bg-primary-500 rounded-full border-4 border-white dark:border-secondary-900 z-10"></div>
+
+                <!-- Content -->
+                <div class="ml-12 md:ml-0 md:w-5/12" [class.md:text-right]="i % 2 === 0">
+                  <app-experience-card [experience]="experience"></app-experience-card>
+                </div>
               </div>
-            </div>
+            }
           </div>
         </div>
         

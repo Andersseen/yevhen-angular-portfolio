@@ -1,8 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'dateRange',
-  standalone: true
+  name: 'dateRange'
 })
 export class DateRangePipe implements PipeTransform {
   transform(startDate: string, endDate: string | null): string {

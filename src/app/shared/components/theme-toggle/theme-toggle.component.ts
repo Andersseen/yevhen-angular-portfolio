@@ -1,12 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-theme-toggle',
-  standalone: true,
   imports: [CommonModule, TranslateModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <button
       (click)="toggleTheme()"

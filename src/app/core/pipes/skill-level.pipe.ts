@@ -1,8 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'skillLevel',
-  standalone: true
+  name: 'skillLevel'
 })
 export class SkillLevelPipe implements PipeTransform {
   transform(level: number): string {
